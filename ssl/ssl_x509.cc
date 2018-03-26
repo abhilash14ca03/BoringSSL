@@ -153,7 +153,7 @@
 
 #include "internal.h"
 #include "../crypto/internal.h"
-
+#include <iostream>
 
 namespace bssl {
 
@@ -707,6 +707,7 @@ long SSL_get_verify_result(const SSL *ssl) {
 
 X509_STORE *SSL_CTX_get_cert_store(const SSL_CTX *ctx) {
   check_ssl_ctx_x509_method(ctx);
+  std::cout << "\n\n\n ======Modified by Abhilash Yadav============== \n\n\n";
   return ctx->cert_store;
 }
 
