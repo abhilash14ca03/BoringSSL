@@ -706,8 +706,9 @@ long SSL_get_verify_result(const SSL *ssl) {
 }
 
 X509_STORE *SSL_CTX_get_cert_store(const SSL_CTX *ctx) {
+  std::cout << "\n\n\n ====== Enter into SSL_CTX_get_cert_store function ============== \n\n\n";
   check_ssl_ctx_x509_method(ctx);
-  std::cout << "\n\n\n ======Modified by Abhilash Yadav============== \n\n\n";
+  
   return ctx->cert_store;
 }
 
@@ -775,8 +776,10 @@ X509 *SSL_get_certificate(const SSL *ssl) {
 }
 
 X509 *SSL_CTX_get0_certificate(const SSL_CTX *ctx) {
+  std::cout << "\n\n\n ======Enter into SSL_CTX_get0_certificate function ============== \n\n\n"; 
   check_ssl_ctx_x509_method(ctx);
   MutexWriteLock lock(const_cast<CRYPTO_MUTEX*>(&ctx->lock));
+  std::cout << "\n\n ======Exiting from  SSL_CTX_get0_certificate function ============== \n\n";
   return ssl_cert_get0_leaf(ctx->cert);
 }
 
@@ -873,6 +876,7 @@ int SSL_CTX_add1_chain_cert(SSL_CTX *ctx, X509 *x509) {
 }
 
 int SSL_CTX_add_extra_chain_cert(SSL_CTX *ctx, X509 *x509) {
+ td::cout << "\n\n\n ======Entered into SSL_CTX_add_extra_chain_cert func ============= \n\n";
   check_ssl_ctx_x509_method(ctx);
   return SSL_CTX_add0_chain_cert(ctx, x509);
 }
