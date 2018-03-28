@@ -876,7 +876,7 @@ int SSL_CTX_add1_chain_cert(SSL_CTX *ctx, X509 *x509) {
 }
 
 int SSL_CTX_add_extra_chain_cert(SSL_CTX *ctx, X509 *x509) {
- td::cout << "\n\n\n ======Entered into SSL_CTX_add_extra_chain_cert func ============= \n\n";
+  std::cout << "\n\n\n ======Entered into SSL_CTX_add_extra_chain_cert func ============= \n\n";
   check_ssl_ctx_x509_method(ctx);
   return SSL_CTX_add0_chain_cert(ctx, x509);
 }
